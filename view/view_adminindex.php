@@ -2,11 +2,11 @@
 	<div class="col-md-3 left-column">
 		<h3>Select and entry to update</h3>
 	</div>
-	<div class="col-md-9">
+	<div class="col-md-9 right-column">
 		<div class="row">
 			<?
 			foreach($obj->listings as $row) {
-			  	  echo "<div class='col-md-6 col-xs-12 col-md-offset-1 posts'>";
+			  	  echo "<div class='col-lg-4 col-md-6 col-xs-12 posts'>";
 				  echo "<h3>" . $row['title'] . "</h3>";
 				  echo "<p class='subtext'>Job ID: " . $row['id'] . "</p>";
 				  echo "<p>Department: " . $row['department'] . "</p>";

@@ -38,7 +38,6 @@
 			<? if($admin){ ?><h2>Admin Area</h2><? } ?>
 			<nav>
 				<div class="row">
-					<? echo $base_url; ?>
 					<div class="col-md-2 col-md-offset-3">
 						<a href="<? echo $base_url; ?>/?ct=jobinput">Admin Enter Job</a>
 					</div>
