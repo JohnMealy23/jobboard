@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2013 at 10:17 AM
+-- Generation Time: Nov 14, 2013 at 05:34 AM
 -- Server version: 5.5.20-log
 -- PHP Version: 5.3.10
 
@@ -36,17 +36,18 @@ CREATE TABLE IF NOT EXISTS `job` (
   `on_location` tinyint(4) NOT NULL,
   `active` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
 
 --
 -- Dumping data for table `job`
 --
 
 INSERT INTO `job` (`id`, `title`, `description`, `requirements`, `contact_email`, `department`, `on_location`, `active`) VALUES
-(00000001, 'Position1', '<b>Description1</b>', '', 'email1@address.com', 'Department1', 1, 1),
-(00000002, 'Position2', '<b>Description2</b>', '', 'email2@address.com', 'Department2', 0, 1),
-(00000003, 'Position3', '<b>Description3</b>', '', 'email3@address.com', 'Department3', 1, 0),
-(00000004, 'Position4', '<b>Description4</b>', '', 'email4@address.com', 'Department4', 0, 1);
+(00000001, 'Position1', '<b>Description1</b>', 'Some sort of requirement.', 'email1@address.com', 'Department1', 1, 1),
+(00000003, 'Position10000df', '<b>Description10</b>', 'Required', 'email3@address.com', 'Department100', 1, 1),
+(00000004, 'Position4', '<b>Description4</b>', '', 'email4@address.com', 'Department4', 1, 1),
+(00000005, 'Position2', '<b>Description2</b>', '', 'email2@address.com', 'Department2', 0, 0),
+(00000047, 'Holla', 'Dude?', 'Know some stuff.', 'too@much.testing', 'Sup?', 1, 1);
 
 -- --------------------------------------------------------
 
