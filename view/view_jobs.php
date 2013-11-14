@@ -5,24 +5,30 @@
 	<div class="col-md-9 col-lg-10 right-column">
 		<div class="row">
 			<?			
-			foreach($obj->listings as $row) {
-				if($row['active'] == 1) {
-				  	  echo "<div class='col-xs-12 col-md-6 col-lg-4 posts'>";
-					  echo "<h3>" . $row['title'] . "</h3>";
-					  echo "<p class='subtext'>Job ID: " . $row['id'] . "</p>";
-					  echo "<p>Department: " . $row['department'] . "</p>";
-					  echo "<p>Description: " . $row['description'] . "</p>";
-					  echo "<p>Requirements:" . $row['requirements'] . "</p>";
-					  echo "<p>On location:  "; 
-					  if($row['on_location'] == 1) {
-					  	echo "Yes.</p>";
-					  } else {
-					  	echo "No.</p>";
-					  };
-					  echo "<a href='mailto:" . $row['contact_email'] . "' class='applyLink'><b>Click to apply!</b></a></p><br>";
-					  echo "</div>";	  
+			if(isset($obj->listings)) {
+				foreach($obj->listings as $row) {
+					if($row['active'] == 1) {
+					  	  echo "<div class='col-xs-12 col-md-6 col-lg-4 posts'>";
+						  echo "<h3>" . $row['title'] . "</h3>";
+						  echo "<p class='subtext'>Job ID: " . $row['id'] . "</p>";
+						  echo "<p>Department: " . $row['department'] . "</p>";
+						  echo "<p>Description: " . $row['description'] . "</p>";
+						  echo "<p>Requirements:" . $row['requirements'] . "</p>";
+						  echo "<p>On location:  "; 
+						  if($row['on_location'] == 1) {
+						  	echo "Yes.</p>";
+						  } else {
+						  	echo "No.</p>";
+						  };
+						  echo "<a href='mailto:" . $row['contact_email'] . "' class='applyLink'><b>Click to apply!</b></a></p><br>";
+						  echo "</div>";	  
+					}
 				}
-			}
+			} else {
+			 		echo "<div class='col-xs-12 posts'>";
+					echo "<h3>No jobs currently posted.  Please check back soon, or <a href='mailto:" . $default_email . "'>send a copy of your resume</a>.</h3>";
+					echo "</div>";
+				}
 			 ?>
 		</div>	
 	</div>

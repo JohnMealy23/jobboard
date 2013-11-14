@@ -5,8 +5,8 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>Busted Tees Job Board</title>
-		<meta name="description" content="The front-end portion of Busted help-wanted.">
+		<title>Job Board</title>
+		<meta name="description" content="A fully functional help-wanted page, produced from scratch over 2.5 days.">
 		<meta name="author" content="John Mealy">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +34,7 @@
 	</head>
 	<body>
 		<header>
-			<h1>Busted Tees Job Board</h1>
+			<h1>Job Board</h1>
 			<? if($admin){ ?><h2>Admin Area</h2><? } ?>
 			<nav>
 				<div class="row">

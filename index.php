@@ -1,12 +1,15 @@
 <?
 //////////////////////////////Config//////////////////////////////
 	
-	$ct = null;
-	$jobid = null;
-	$notification = null;
-	$admin = false;
-	$language = "";
+	$default_email = "default@email.com";		
 	
+	if(substr( $_SERVER['HTTP_HOST'], 0, 4 ) == 'dev.') { 
+		$base_url = '';
+	} else {
+		$base_url = "http://notiondigitalarts.com/testing/busted";
+	}
+	
+	//DB	
 	if(substr( $_SERVER['HTTP_HOST'], 0, 4 ) == 'dev.') { 
 	Config::write('db.host', 'localhost');
 	 } else { 
@@ -16,22 +19,20 @@
 	Config::write('db.port', '3306');
 	Config::write('db.basename', 'busted');
 	Config::write('db.password', 'L@t3rG4t0r');
-
-
+	
 
 //////////////////////////////Controller//////////////////////////////
 
+	$ct = null;
+	$jobid = null;
+	$notification = null;
+	$admin = false;
+	$language = "";
+
+	//Get destination:
 	$qry_str = $_SERVER['QUERY_STRING'];
-	
-
-if(substr( $_SERVER['HTTP_HOST'], 0, 4 ) == 'dev.') { 
-	$base_url = '';
-} else {
-	$base_url = "http://notiondigitalarts.com/testing/busted";
-}
-	
 	parse_str ($qry_str);
-
+	
 	if($ct == "listingindex"){
 		$admin = true;
 		
@@ -86,8 +87,8 @@ if(substr( $_SERVER['HTTP_HOST'], 0, 4 ) == 'dev.') {
 			//$post = $job->job_result[0];	
 			//$requirements = $job->requirement_result;
 			
-			$notification = 'Job Listing has been Updated';
-			$language = "Update the job posting.";
+			$notification = 'Job has been updated.';
+			$language = "Select a posting to update.";
 			include 'view/view_header.php';
 			include 'view/view_adminindex.php';
 			include 'view/view_footer.php';
@@ -123,6 +124,21 @@ if(substr( $_SERVER['HTTP_HOST'], 0, 4 ) == 'dev.') {
 			include 'view/view_footer.php';
 			exit;
 		}
+	} else if($ct == 'del') {
+			$obj = new Job();
+			$obj->id = $jobid;
+
+			//Update DB:
+			$obj->del();
+
+			$obj->getAll('*');
+			
+			$notification = 'Job Listing has been deleted.';
+			$language = 'Select a posting to update.';
+			include 'view/view_header.php';
+			include 'view/view_adminindex.php';
+			include 'view/view_footer.php';
+			exit;
 	} else {
 		$obj = new Job();
 		$obj->getAll('*');
@@ -242,6 +258,15 @@ if(substr( $_SERVER['HTTP_HOST'], 0, 4 ) == 'dev.') {
 		
 		function field() {
 			
+		}
+		
+		function del() {
+		
+		
+			
+			$db = new DB();
+			$query = "DELETE FROM job WHERE id=". $this->id;
+			$db->Database($query);
 		}
 		
 	}
