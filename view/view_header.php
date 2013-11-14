@@ -35,21 +35,18 @@
 	<body>
 		<header>
 			<h1>Busted Tees Job Board</h1>
-			
+			<? if($admin){ ?><h2>Admin Area</h2><? } ?>
 			<nav>
 				<div class="row">
-					
-					<div class="col-md-2 col-md-offset-2">
-						<a href="/">Enter Job</a>
+					<? echo $base_url; ?>
+					<div class="col-md-2 col-md-offset-3">
+						<a href="<? echo $base_url; ?>/?ct=jobinput">Admin Enter Job</a>
 					</div>
 					<div class="col-md-2">
-						<a href="/contact">Job Index</a>
+						<a href="<? echo $base_url; ?>/?ct=listingindex">Admin Job Index</a>
 					</div>
 					<div class="col-md-2">
-						<a href="/contact">Job Posts</a>
-					</div>
-					<div class="col-md-2">
-						<a href="/contact">Job Postings</a>
+						<a href="<? echo $base_url; ?>/">Job Board</a>
 					</div>
 				</div>
 			</nav>

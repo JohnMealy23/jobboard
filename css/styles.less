@@ -1,6 +1,15 @@
 @standard_font_size: 13px;
 @small_font_size: @standard_font_size - 2;  
 
+.rounded-left(@corner: 20px) {
+  -webkit-border-top-left-radius: @corner;
+  -webkit-border-bottom-left-radius: @corner;
+  -moz-border-radius-topleft: @corner;
+  -moz-border-radius-bottomleft: @corner;
+  border-top-left-radius: @corner;
+  border-bottom-left-radius: @corner;
+}
+
 body {
   font-size: @standard_font_size;
 }
@@ -9,10 +18,26 @@ header {
   text-align: center;
 }
 
-nav div a{
-  font-weight:bold 
-  font:13px;
+nav {
+  margin-bottom: 10px; 
+  border: 1px solid #757575;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+nav a{
+  font-weight:bold;
+  font-size:20px;
   text-decoration: none;
+}
+nav a:hover{
+  text-decoration: none;
+  color: #333333;
+}
+
+h2 {
+  margin-top: 10px;
+  color: #999999;
 }
 
 .subtext {
@@ -21,15 +46,16 @@ nav div a{
 }
 
 .posts {
-  background: #fafafa;
-  border: solid 1px #E6E6E6;
-  border: 1px solid #000000;
+  background-image: url('/imgs/texture_1.jpg');
+  border: 1px solid #757575;
   padding-bottom: 15px;
-  margin-bottom: 15px;
+  padding-top: 15px;
+  margin: -1px;
+  
 }
 
 .row {
-  margin-bottom: 15px; 
+
 }
 
 .applyLink {
@@ -56,11 +82,22 @@ td input {
   float: left;
 }
 
-input[type="checkbox"]  {
+input[type="checkbox"] {
   width:auto;
 }
 
 input[type="submit"] {
   width:auto;
   float: right;
+}
+
+.left-column {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.contents {
+  .rounded-left;
+  background: #fafafa;
+  border: 1px solid #B9B9B9;
 }
